@@ -1,0 +1,13 @@
+<antlib xmlns:antcontrib="antlib:lbnet.ant.misctasks">
+
+    <taskdef name="test2" classname="lbnet.ant.misctasks.TestTask"/>
+    
+    <taskdef name="whatsAvailable" classname="lbnet.ant.misctasks.WhatsAvailableTask"/>
+
+    <taskdef name="whereAmI" classname="lbnet.ant.misctasks.WhereAmITask"/>
+    
+    <taskdef name="setPropertyDefaults" classname="lbnet.ant.misctasks.SetPropertyDefaultsTask"/>
+    
+    <taskdef name="toggleProperty" classname="lbnet.ant.misctasks.TogglePropertyTask"/>
+
+</antlib>

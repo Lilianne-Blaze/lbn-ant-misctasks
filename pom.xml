@@ -2,16 +2,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>lbn-ant-misctasks</groupId>
-    <artifactId>lbn-ant-misctasks</artifactId>
+    <groupId>lbnet-ant-misctasks</groupId>
+    <artifactId>lbnet-ant-misctasks</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.3-SNAPSHOT</version>
-    <name>lbn-ant-misctasks</name>
+    <version>0.0.7-SNAPSHOT</version>
+    <name>lbnet-ant-misctasks</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <maven.clean.failOnError>false</maven.clean.failOnError>
+        <maven.compiler.enablePreview>true</maven.compiler.enablePreview>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
     
     <dependencies>
@@ -31,28 +33,28 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna-platform</artifactId>
-            <version>5.13.0</version>
-        </dependency>
         
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.14.0</version>
-        </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
         
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.10.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>3.1.0</version>
+        </dependency>
     </dependencies>
 
 
@@ -88,7 +90,7 @@
                 <groupId>net.revelc.code.formatter</groupId>
                 <artifactId>formatter-maven-plugin</artifactId>
                 <!-- 2.16.0 is the latest version that still supports Java 8 -->
-                <version>2.16.0</version>
+                <version>2.23.0</version>
                 <configuration>
                     <lineEnding>LF</lineEnding>
                     <directories>
