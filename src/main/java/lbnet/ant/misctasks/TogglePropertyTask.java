@@ -11,7 +11,7 @@ public class TogglePropertyTask extends MavenTaskBase {
 
     @Getter
     @Setter
-    private String newPropName = null;
+    private String newName = null;
 
     @Override
     public void execute() {
@@ -20,8 +20,8 @@ public class TogglePropertyTask extends MavenTaskBase {
         boolean newValue = false;
         boolean valueChanged = false;
 
-        warn("name=" + name);
-        warn("value=" + value);
+        // warn("name=" + name);
+        // warn("value=" + value);
 
         if (value == null || value.equals("") || value.equalsIgnoreCase("false")) {
             newValue = true;
@@ -32,20 +32,13 @@ public class TogglePropertyTask extends MavenTaskBase {
         }
 
         if (valueChanged) {
-            if (newPropName == null) {
-                setProperty(name, newValue);
+            String newValueStr = Boolean.toString(newValue);
+            if (newName == null) {
+                setProperty(name, newValueStr, true);
             } else {
-                setProperty(newPropName, newValue);
+                setProperty(newName, newValueStr, true);
             }
         }
-    }
-
-    private String getProperty(String propName) {
-        return getMavenProject().getProperties().getProperty(propName);
-    }
-
-    private void setProperty(String propName, boolean newValue) {
-        getMavenProject().getProperties().setProperty(propName, "" + newValue);
     }
 
 }

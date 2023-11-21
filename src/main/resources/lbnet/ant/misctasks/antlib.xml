@@ -9,5 +9,9 @@
     <taskdef name="setPropertyDefaults" classname="lbnet.ant.misctasks.SetPropertyDefaultsTask"/>
     
     <taskdef name="toggleProperty" classname="lbnet.ant.misctasks.TogglePropertyTask"/>
+    
+    <taskdef name="writeProjectProperties" classname="lbnet.ant.misctasks.WriteProjectPropertiesTask"/>
+    
+    <taskdef name="prepareEmptyAgentFiles" classname="lbnet.ant.misctasks.PrepareEmptyAgentFilesTask"/>
 
 </antlib>

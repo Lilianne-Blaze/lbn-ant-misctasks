@@ -5,7 +5,7 @@
     <groupId>lbnet-ant-misctasks</groupId>
     <artifactId>lbnet-ant-misctasks</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>0.0.12</version>
     <name>lbnet-ant-misctasks</name>
 
     <properties>
@@ -35,9 +35,14 @@
         </dependency>
         
         <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.11.0</version>
         </dependency>
         
         <dependency>
@@ -54,6 +59,12 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>3.1.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.graalvm.buildtools</groupId>
+            <artifactId>native-maven-plugin</artifactId>
+            <version>0.9.28</version>
         </dependency>
     </dependencies>
 

@@ -1,7 +1,12 @@
 package lbnet.ant.misctasks;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import org.apache.commons.lang3.reflect.MethodUtils;
+import org.apache.commons.text.StringSubstitutor;
+import org.apache.commons.text.lookup.StringLookup;
+import org.apache.commons.text.lookup.StringLookupFactory;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugins.antrun.MavenAntRunProject;
 import org.apache.maven.project.MavenProject;
@@ -47,6 +52,42 @@ public class MavenTaskBase extends TaskBase {
         } catch (Exception e) {
             return Optional.empty();
         }
+    }
+
+    public String getProperty(String propName) {
+        var mpo = getMavenProjectOpt();
+        if (mpo.isPresent()) {
+            String pv = mpo.get().getProperties().getProperty(propName);
+            if (pv != null) {
+                return pv;
+            }
+        }
+
+        return System.getProperty(propName);
+    }
+
+    public void setProperty(String propName, String propVal, boolean setSysProps) {
+        var mpo = getMavenProjectOpt();
+        if (mpo.isPresent()) {
+            mpo.get().getProperties().setProperty(propName, propVal);
+        }
+
+        if (setSysProps) {
+            System.setProperty(propVal, propName);
+        }
+    }
+
+    public String interpolate(String text) {
+        Map<String, StringLookup> slm = new HashMap<>();
+        slm.put(StringLookupFactory.KEY_PROPERTIES, StringLookupFactory.INSTANCE.environmentVariableStringLookup());
+        slm.put(StringLookupFactory.KEY_PROPERTIES, StringLookupFactory.INSTANCE.propertiesStringLookup());
+        StringLookup sl = StringLookupFactory.INSTANCE.functionStringLookup(this::getProperty);
+
+        StringSubstitutor ss = new StringSubstitutor(
+                StringLookupFactory.INSTANCE.interpolatorStringLookup(slm, sl, false));
+
+        return ss.replace(text);
+
     }
 
 }
