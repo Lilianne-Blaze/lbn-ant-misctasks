@@ -80,7 +80,7 @@ public class MavenTaskBase extends TaskBase {
     public String interpolate(String text) {
         Map<String, StringLookup> slm = new HashMap<>();
         slm.put(StringLookupFactory.KEY_PROPERTIES, StringLookupFactory.INSTANCE.environmentVariableStringLookup());
-        slm.put(StringLookupFactory.KEY_PROPERTIES, StringLookupFactory.INSTANCE.propertiesStringLookup());
+        slm.put(StringLookupFactory.KEY_SYS, StringLookupFactory.INSTANCE.propertiesStringLookup());
         StringLookup sl = StringLookupFactory.INSTANCE.functionStringLookup(this::getProperty);
 
         StringSubstitutor ss = new StringSubstitutor(

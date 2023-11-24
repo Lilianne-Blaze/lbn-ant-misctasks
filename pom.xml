@@ -5,7 +5,7 @@
     <groupId>lbnet-ant-misctasks</groupId>
     <artifactId>lbnet-ant-misctasks</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.12</version>
+    <version>0.0.13-SNAPSHOT</version>
     <name>lbnet-ant-misctasks</name>
 
     <properties>
@@ -26,6 +26,7 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.4.11</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -60,12 +61,7 @@
             <artifactId>maven-antrun-plugin</artifactId>
             <version>3.1.0</version>
         </dependency>
-        
-        <dependency>
-            <groupId>org.graalvm.buildtools</groupId>
-            <artifactId>native-maven-plugin</artifactId>
-            <version>0.9.28</version>
-        </dependency>
+
     </dependencies>
 
 
