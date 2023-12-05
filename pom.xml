@@ -5,7 +5,7 @@
     <groupId>lbnet-ant-misctasks</groupId>
     <artifactId>lbnet-ant-misctasks</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.13-SNAPSHOT</version>
+    <version>0.0.14</version>
     <name>lbnet-ant-misctasks</name>
 
     <properties>
@@ -15,6 +15,22 @@
         <maven.compiler.enablePreview>true</maven.compiler.enablePreview>
         <maven.compiler.release>21</maven.compiler.release>
     </properties>
+    
+    <distributionManagement>
+        <repository>
+            <id>repsy</id>
+            <name>My Private Maven Repository on Repsy</name>
+            <url>https://repo.repsy.io/mvn/lilianne_blaze/lbnet</url>
+        </repository>
+    </distributionManagement>
+    
+    <repositories>
+        <repository>
+            <id>repsy</id>
+            <name>My Private Maven Repository on Repsy</name>
+            <url>https://repo.repsy.io/mvn/lilianne_blaze/lbnet</url>
+        </repository>
+    </repositories>
     
     <dependencies>
         <dependency>
